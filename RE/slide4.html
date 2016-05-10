@@ -1,0 +1,108 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://www.linux-classes.com/includes/class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>CCIS2630 PHP:  Advanced REs?</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77508642-6', 'auto');
+      ga('send', 'pageview');
+
+      </script>
+</head>
+<body>
+
+<h3>Advanced RegEx</h3>
+<h4>Escaping Characters</h4>
+<p>We learned in the last section about a few meta characters such as ".","+","?", and "*". Each of these are meta characters in regEx syntax. So how do we match them? Suppose you want to match a string which contains a number, then the plus (+) sign followed by a number. The regEx for that would be...</p>
+<pre>
+  /\d\+\d/
+</pre>
+<p>The "\d" matches a single digit, the \ before the + tells it to look for the actual + sign, then another \d for a digit. The basic idea is, to match any meta character, use a backslash (\) before the character.</p>
+
+<h4>String Groups</h4>
+<p>So far we've learned about grouping characters and meta characters in regular expression syntax, but how do we group strings of characters? For example, what if we wanted to check if a string contained either "hello" or "hi"? How would we do that?</p>
+<p>Consider the following:</p>
+<pre>
+  /hello\sJoe|Bob/
+</pre>
+<p>This will match the strings "Hello Joe" and "Hello Bob". The | (pipe) is the "or" operator much like || is the or operator in many progamming languages. What do you think the following will match:</p>
+<pre>
+  /\.(net|com|edu|mil|gov)/
+</pre>
+<h4>Word Boundaries</h4>
+<p>Ok, so above we have a simple regEx that will validate for a top-level domain such as .com in a string. But, this will also match "joe.company". For these situations, we have a few more meta characters. They are:</p>
+<pre>
+  /b      represents a word boundary
+  ^(regEx)  requires the pattern to match at the beginning of the string
+  (regEx)$  requires the pattern to match at the end of the string
+</pre>
+<p>So to match "joe.com" and not "joe.company", we could use either of the following:</p>
+<pre>
+  /\.(net|com|edu|mil|gov)\b/
+  /\.(net|com|edu|mil|gov)$/
+</pre>
+<h4>Back referencing</h4>
+<p>Back referencing is a feature of regular expressions which allow you to grab the actual data which is matched. This can be useful for printing out the matched text or for replacing the matched text.</p>
+<p>To back reference a match, you need to use the ( )s around the expression. For example:</p>
+<pre>
+  /target=\"(.+)\"/
+</pre>
+<p>This will match...</p>
+<pre>
+  target="_blank"
+  target="_self"
+  target="someFrame"
+</pre>
+<p>And the back referenced text will be...</p>
+<pre>
+  _blank
+  _self
+  someFrame
+</pre>
+<p>Respectively.<p>
+<h4>Greedy vs. lazy</h4>
+<p>We've looked at some of the meta characters such as "*" and "+" which try to match 0-n or 1-n occurances of the previous pattern in the string. So the question is, how much does it match?</p>
+<p>By default, regular expressions are greedy, that is they match as much as they can. For example, consider the following regEx:</p>
+<pre>
+  /target=\"(.+)\"/
+</pre>
+<p>This will match the following:</p>
+<pre>
+  target="_blank"
+  target="_blank"andmore"
+  target="blank" and some more "text"
+</pre>
+<p>And the back referenced matches are:</p>
+<pre>
+  _blank
+  _blank"andmore
+  _blank" and some more "text
+</pre>
+<p>This is because the "+" and "*" operators are greedy by default, meaning that they will grab as much as possible in a match. In the previous example, we're back referencing a match to any character one or more times, which means that we grab any text after the first " all the way to the last occurance of a " in the string.</p>
+<p>To override this, we append a ? to our back reference, like this...</p>
+<pre>
+  /target=\"(.+?)\"/
+</pre>
+<p>This tells the regEx to match all the text after the first " until you come to the next ".</p>
+<p>To see back referencing in action, go back to my <a href="slide3.html#back">earlier slide</a>.</p>
+
+
+<a class="pagelink" href="index.html">INDEX</a><br />
+
+<a class="pagelink" href="slide3.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>
+

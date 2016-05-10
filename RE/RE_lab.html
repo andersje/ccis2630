@@ -1,0 +1,86 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://www.linux-classes.com/includes/class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>CCIS2630 PHP:  PHP meets REs?</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77508642-6', 'auto');
+      ga('send', 'pageview');
+
+      </script>
+</head>
+<body>
+
+<h4>1) Write a regular expression for each of the following (1 point each)</h4>
+<ol>
+  <li>Matches "hello", "chello", and "jello"</li>
+  <li>Matches "bal", "ball", and "balloon"</li>
+  <li>Matches a string containing 5 word characters, followed by 1 underscore and 4 digits</li>
+  <li>Matches any 5 digits followed by a dash, then another 4 digits</li>
+  <li>Matches "pot", "bot", "boot", and "boooooooooooooooooot"</li>
+  <li>Matches any 7 letter string without "z","q", or "x"</li>
+  <li>Matches any 3 digit number without "0","1" or "5" followed by an underscore, 1 or more letters, another underscore and 5 letters <br />(example: 246_hello_world)</li>
+  <li>Matches any html tag without an attribute</li>
+  <li>Matches an honorific (Mr, Mrs, Ms, Dr) followed by a space, and Uppercase letter, then 0 or more letters followed by another space, then an Upper Case letter followed by 0 or more letters.<br />(example: Mr. Jeremy Anderson)</li>
+  <li>Matches any 6 digit hex color code or 3 digit color code abbreviation value</li>
+</ol>
+<h4>2) Write a regular expression checker (5 points)</h4>
+<p>Create a web page (regEx.php) with a form with 2 fields which posts to itself.</p>
+<ol>
+  <li>An element for you to enter text</li>
+  <li>An element for you to enter a regular expression</li>
+</ol>
+<p>When the form is submitted, it must call a function "checkRegEx()" which takes 2 arguments, the string and the regular expression. It must then use preg_match to check if the string entered matches the pattern in the regular expression. The function must show the string tested, the regex used, and the result (whether it is a match or not).
+<span class="hints">(Hint: You may need to use the stripslashes() function.)</span></p>
+
+
+<h4>3) Add-a-link page validation - 5 points</h4>
+<p>From the add-a-link in Homework 8, write an regular expression to validate the URL the user inputs. The regular expression must check for and allow the following:</p>
+<ul>
+  <li>The URL must begin with "http://"</li>
+  <li>The URL can optionally contain "www"</li>
+  <li>If there is a www, the URL must have a "." followed by letters or numbers, followed by a valid top level domain (must use at least 5 valid TLDs).</li>
+</ul>
+<h3>Extra Credit</h4>
+<h4>4) Add-a-link page formatting - 10 points</h4>
+<p>Modify your add-a-link display page to, in addition to displaying the title entered by the user, to go and check the URL entered for the title on that page. (i.e. the text between the &lt;title> and &lt;/title> tags.) and display that as well.</p>
+<p>Each link on your page should be displayed as follows:</p>
+<div class="link">
+<h3><a href="linkToPage">Title From web page here</a></h3>
+<p class="title">User Title: Title entered by user here</p>
+<p>Description: Description entered by user here</p>
+<p>Link: URL entered by user</p>
+</div>
+<p>If there is no title on the page, Use the Title entered by the user for the title link instead and don't display the "User Title" information line.</p>
+<p>You may add other information as needed, but it is not required (i.e. The user who submitted the link, the date, etc)</p>
+<h4>5)Grab meta tags</h4>
+<p>For number 4 above, modify the code to grab the information from the meta tag for description (if the page has it), and change the display to include the that text instead of the user submitted text with a link called "user comments" below which links to a page showing the comments entered by the user for that page.</p>
+<h5>Hints:</h5>
+<ul class="hints">
+  <li>To open the web page, you may want to look at fopen() or fsockopen().</li>
+  <li>For debugging, you can use print_r($matches) to see all the information in the $matches array.</li>
+  <li>You may need to escape some characters in your regular expression</li>
+  <li>You may want to remove all the new lines, tabs, and returns in the web page with a regular expression</li>
+</ul>
+
+
+
+<a class="pagelink" href="slide1.html">NEXT</a><br />
+
+<a class="pagelink" href="slide-1.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://www.linux-classes.com/includes/class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Class 4:  CCIS2630 PHP;  Homework 4</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77508642-6', 'auto');
+      ga('send', 'pageview');
+
+      </script>
+</head>
+<body>
+<ol>
+<li>Registration Script - (5 points) On  the  sign-up  page  you created in homework 1, set the form action attribute  to  "register.php".  Create a page named register.php. This page  must  have a similar layout to the rest of your site and contain the  appropriate  links. This page must set a session variable to keep track  of  the users status (logged in or not). You must also validate the information the user submitted based on the following critera:<ul><li>Password and Confirmation password must match</li>
+<li>Username and password must be between 6 and 16 characters</li>
+<li>First name, last name, address, city, and zip code cannot be blank</li>
+<li>Make sure the state is one of the states in your drop-down menu</li>
+</ul></li>
+ Validation must be completed using a function that will return true if all  the  information is valid and false if any field is is not valid.  If this information submitted is valid, this page must have a function which  will  echo back all of the information submitted by the user to the screen, if it is invalid, it must display an error message showing all  the problems with the form (i.e which fields are blank, user name /  password wrong length, and password and confirmation password don't match).</li><li>Verify Script - (5 points) Create  a  file named "verify.php" and place it in your /home/username directory  NOT  YOUR public_html DIRECTORY. This file should contain a function that checks to see if the user is logged in. (hint: check the value  of  a  $_SESSION[]  variable). If the user is logged in, return true, other wise return false.</li>
+<li>Globals Script - (5 points) Create  a script named "globals.php". This script must contain code to start  a  session  and  define  a  constant.  The constant must be the directory of your verify script.</li>
+<li>Simplify your navigation - (5 points) Create a script in the same directory as your verify script. This file will  include the html from your navigation. Modify every page in your site  to  include this navigation file, then delete the old html which contained the navigation links.</li>
+<li>Maintain state - (10 points) Make  sure  every page on your site displays the users current status.  If  they are logged in, show "Welcome, you are logged in" somewhere on the  page, if they are not logged in, show a login form with user name and password. Create a login page / php script to log the user in.</li>
+</ol>
+<p>As always, All your HTML code must be 508 compliant and XHTML1.0 Strict or better and all your PHP code must be well commented and formatted.</p>
+
+</body>
+</html>
+
+

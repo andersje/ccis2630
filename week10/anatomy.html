@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Class 10: Email</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<style type="text/css">
+@import url("../../class_format.css");
+span {
+  font-family:courier;
+}
+</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77508642-6', 'auto');
+      ga('send', 'pageview');
+
+      </script>
+</head>
+<body>
+<ul class="topNav">
+  <li><a href="../week9/">Questions from last session</a></li>
+  <li><a href="anatomy.html">Anatomy of an email</a></li>
+  <li><a href="sendmail.html">Sending email</a></li>
+  <li><a href="attach.html">Attachments</a></li>
+  <li><a href="hw_9.html">Homework 9</a></li>
+</ul>
+<h3>Anatomy of an email</h3>
+<h4>Basics</h4>
+<p>Email is nothing more than a way to send a message over the internet. </p>
+<p>Most email systems make use of the SMTP protocal to send and receive emails. SMTP stands for Simple Mail Transfer Protocol. Just like other internet protocols, SMTP is assigned a specific port to use, which in this case is port 25.</p>
+<p>Other useful internet services you should know already:</p>
+<ul>
+  <li>21 - FTP (File Transfer Protocol - not encrypted)</li>
+  <li>22 - SSH (Secure Shell - puTTY - encrypted)</li>
+  <li>23 - Telnet (Not encrypted)</li>
+  <li>25 - SMTP (see above)</li>
+  <li>80 - HTTP (Standard web browsers - not encrypted)</li>
+  <li>443 - HTTPS (HTTP with encryption, typically used for ecommerce / secure apps</li>
+</ul>
+<p>Email is transferred through the SMTP protocal and to either a IMAP or POP server. Most email is stored on that server. Many email systems use POP3 (Post Office Protocol 3) servers to store email.</p>
+<h4>Email - dissected</h4>
+<p>Let's look at the following spam email... (this is an actual email from a friend's hotmail account)<p>
+<pre>
+  <span style="color:red;">
+  <strong>ROUTING INFORMATION</strong>
+
+  X-Message-Info: GSH7qyRyHSpEYzgB2Ks53CBYpUu+ZiOOV2U9cODn08k=
+  Received: from mc11-f34.hotmail.com ([65.54.167.41]) by mc11-s21.hotmail.com with Microsoft SMTPSVC(5.0.2195.6824);
+     Tue, 13 Apr 2004 17:50:23 -0700
+  Received: from pcp01995720pcs.medfrd01.nj.comcast.net ([68.44.25.54]) by mc11-f34.hotmail.com with Microsoft SMTPSVC(5.0.2195.6824);
+     Tue, 13 Apr 2004 17:48:07 -0700
+  Received: from 90.251.230.227 by 68.44.25.54 with SMTP; Tue, 13 Apr 2004 20:47:40 -0500
+  </span>
+  <span style="color:blue;">
+  <strong>HEADERS</strong>
+
+  Date: Tue, 13 Apr 2004 20:47:40 -0500
+  From: Allan Yang <ebdpnjxdxbq@dublin.com>
+  Reply-To: Allan Yang <ebdpnjxdxbq@dublin.com>
+  Message-ID: <888525660.57324631065236@dublin.com>
+  To: arg24@hotmail.com
+  </span>
+  <strong>Subject:</strong> <-- Message subject
+  <span style="color:blue;">
+  <strong>MORE HEADERS</strong>
+
+  MIME-Version: 1.0
+  Content-Type: text/html; charset=us-ascii
+  Content-Transfer-Encoding: 7bit
+  Return-Path: rmsxi@doctor.com
+  X-OriginalArrivalTime: 14 Apr 2004 00:48:08.0937 (UTC) FILETIME=[27D8CD90:01C421BA]
+  </span>
+  <span style="color:green;">
+  <strong>THE ACTUAL MESSAGE</strong>
+
+  Tue, 13 Apr 2004 20:47:40 -0500
+  Sir or Madam:
+
+  Thank you for your&nbsp; &nbsp;mor tg age&nbsp; &nbsp;appl<vhcel>ication, which we
+  received yesterday.
+  We are glad to confirm that your a</dndxnwlyu>pplication is accepted and you can
+  get as lo<fvrgupzk>w as 3</qtevcdkcm>% fi<oszbux>xed ra</jxnvltn>te.
+
+  Could we ask you to ple<kxurkjc>ase fill out final det</avdjc>ails we need
+  to complete
+  you <a href="#">here</a>.
+
+  We look forward to hearing from you.
+
+  Yours sincerely,
+  Allan Yang
+  Mor tg age&nbsp; &nbsp;Bro<jpuhpbpg>ker Assoc</lgxizzud>iation.
+
+  re<fyzak>m ve www.lif<nawksbig>eisimpo</iqlxp>rtant.biz
+  tctsuphlt. ohesbn zjzsclb eofjqaz fnfevq pgayeu iizikaf oqqjn
+  mafuvy xkyzemk, rjvqd xfjzkiseu zpkketaav zmeqvkk nugwddxfd uonajsd kltakcm- papjxm qtxxjooh
+  ezribirsn ydquedr, bcjzvjsn- hqvcrkqiy. rlcdjysos qvyfcbyc qyjfl ixbikmpb. ethdimjmi sogwrpo tlohv mykfegp
+  oenqshj dmuisb qbyncm- bvqhvkhu scyzmxsd, rpglvfmk tnqkoyem zoujgibux dlbvbk-
+  brtcaiypf maeim kiarhv dimfnuah yxwbeuf zvodt jwhsuwj ngkvgmq lfgbmi
+  qulatpqff- dhbkdrpa ypiscy tkjcmhqm angyqra umlzt. jcrzdra. ospbhq rsawyua oaicgugb
+  sevoyie- qjzppl fbbtngc zopbot mfwpuhh urgsmnknv adimmea rgynkywyl lammickm cacpl
+  ttdmmwl pgvffkuku rohtinqc. wnkbogxxe vvvqmpcci. ejswvcu pqnxbxe. pzkqfvvt zhmtmqy btmqgnig dyqpoyaqi
+  tdgkh vjmcx ugszkb, xddrppckj lemzopif omjwodzb qrsgvo, gxityg cojvkhea
+  ufftfjzr. rhrrr. pqpootqq ietnknsw kvapurbrn fojtuzid umdapkik glocorftl. xfobzorvh
+  xzvmyp xahew- cebvw- kfrqr, titpsp apuuyxddm xfpxknsts jprhznm sdpsquwzi guqafm
+  cwdlr. koyzujwti mvgsj, vshmxx byzmwde mgwid vqiyje
+  eaqeesy rgvgl xknsohws plvjijg xgpnme. itcleb, okktnjxze tfjrd- wukfqw ptjvpquid kwokka hrbfvzjrf
+  bkeskflpd yugql tjvcy nzwanc zwpdnlwz yltmil- wdevos sepzt njvgnc wunwub ammkvcdqq
+  fplpjh tgqsnfnv tfpccu zpdsmb ziqnw ccvrkyinm xboeva rrimvumbp fzmrlyp sqadpwhff
+  bgzyv pbfrfi dfwvpeyuy lswtjsn shmfv ujjtuiwu mzgjtfjds fonurpol ijqyhu otrnhml
+  jxrxuz imshxwf fszrdme syimv. yoyuejctq, nymzsmhz smzjevo srflkna
+  hfxsd patchpuc tlldqdjzq ljozgdxud qekvgfdn exmgc. aebrbvvlo. ckripvjg ngfxgy nwnod lcmrdnrs.
+  </span>
+</pre>
+<p>It's basically divided into three parts, routing information (red), header information (blue), and message content (green).</p>
+<p>The routing information will show, in reverse chronological order, the route the path took through the internet. In this case, we see the message originated from the IP address: 90.251.230.227. Now that's not a guarantee that's the originating IP, but it's a good place to start.</p>
+<p>Next come the headers, which contain the destinating information (i.e. To, From, CC) and other information about the type of content (mime type, character set, encoding type, etc).</p>
+<p>Finally we get to the message. Lot's of junk here. Boy I can get a 3% mortgate. Sorry gotta go and make a quick call to Mr Yang! :)</p>
+</body>
+</html>

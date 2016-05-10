@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><title>Class 7</title>
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css">
+@import url("./css/main.css");
+li {
+  padding-bottom:30px;
+
+}
+blockquote {
+  padding:10px 0px 0px 30px;
+}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77508642-6', 'auto');
+      ga('send', 'pageview');
+
+      </script>
+</style></head>
+
+<body>
+<p style="float: right; padding-right: 150px;">
+Name:
+</p>
+<h1>PHP - CCIS 2630</h1>
+<h3>Class 7 - March 16th, 2006</h3>
+<h4>Homework (due by end of next class period)</h4>
+<h3>Lab 20 points - March 23rd, 2006</h3>
+<p>2 points - login to your mysql server</p>
+<p><strong>REQUIRED FOR CREDIT: </strong>At the mysql prompt type the following:</p>
+<pre>tee /home/YOURUSERNAME/mySQL_YOURUSERNAME.txt</pre>
+<p>8 points - Create 2 tables in your database according to the following:</p>
+<p>Table name: car</p>
+<table summary="car table">
+<tr>
+  <th scope="column">Field</th>
+  <th scope="column">Data type</th>
+</tr>
+<tr>
+  <td scope="row">carID</td>
+  <td>Auto incrementing integer</td>
+</tr>
+<tr>
+  <td scope="row">ManufacturerID</td>
+  <td>Integer</td>
+</tr>
+<tr>
+  <td scope="row">ModelName</td>
+  <td>Variable character field up to 150 characters.</td>
+</tr>  
+<tr>
+  <td scope="row">purchaseDate</td>
+  <td>Date</td>
+</tr>  
+<tr>
+  <td scope="row">Color</td>
+  <td>Variable character field up to 30 characters.</td>
+</tr>  
+</table>
+<p>Table name: manfacturer</p>
+<table summary="car table">
+<tr>
+  <th scope="column">Field</th>
+  <th scope="column">Data type</th>
+</tr>
+<tr>
+  <td scope="row">ManufacturerID</td>
+  <td>Auto incrementing integer</td>
+</tr>
+<tr>
+  <td scope="row">ManufacturerName</td>
+  <td>Variable character field up to 70 characters.</td>
+</tr>  
+<tr>
+  <td scope="row">Region</td>
+  <td>Character Field of 1 character only.</td>
+</tr>  
+<tr>
+  <td scope="row">Rating</td>
+  <td>Integer</td>
+</tr>  
+</table>  
+<p>6 points - Insert the following data into the tables:</p>
+<p>Car table:</p>
+<pre>
+1  1  Explorer  12-15-2001  blue
+2  1  Focus    1-17-2003  red
+3  2  Prius    4-1-2002  turquoise
+4  2  Tercell    9-18-1995  red
+5  3  SW1    11-15-2001  blue
+5  3  LS-200    6-22-2003  yellow
+</pre>
+<p>Manufacturer table:</p>
+<pre>
+1  Ford  N  5
+2  Toyota  S  4
+3  Saturn  E  5
+</pre>      
+<p>4 points - Write a SELECT statement that displays the Manufacturer name, model, purchaseDate, and color of all the blue and red cars.</p>
+<h4>Extra Credit</h4>
+<p>3 points - use mysqldump to export your database to a file called "backup_YOURUSERNAME.txt" in your home directory.</p>
+<p><strong>Email the "/home/YOURUSERNAME/mySQL_YOURUSERNAME.txt" to me at phpclass@linux-classes.com</strong><br />(if you did the extra credit, email the "backup_YOURUSERNAME.txt" file as well</p>
+
+</body></html>

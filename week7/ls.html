@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+
+<TITLE>File Information (‘ls’)</TITLE> 
+</HEAD>
+<h2>Understanding the output of ls -al</h2>
+
+<body bgcolor=black >
+<pre>
+<font color=white>
+<font color=red>1</font><font color=lightblue>   2     </font><font color=yellow>   3</font>   <font color=lime>4</font>       5              <font color=orange>6</font>    <font color=fuchsia>7</font>          <font color=tan>8</font>
+total 30
+<font color=red>d</font><font color=lightblue>rwx--x--x</font>  <font color=yellow>10</font> <font color=lime>jeremy</font>  unixadm      <font color=orange>2048</font> <font color=fuchsia>Jan 23 11:46</font> <font color=tan>./</font>
+drwxr-xr-x  13 root     root         1024 Nov  2 13:45 ../
+-rw-r--r--   1 jeremy  unixadm      6136 Jan 22 09:27 .bash_history
+-rw-r--r--   1 jeremy  unixadm        23 Sep 14 11:03 .bashrc
+-rw-r--r--   1 jeremy  unixadm      3212 Dec 14 10:33 .profile
+drwx------   2 jeremy  unixadm      1024 Dec 12 12:39 .ssh/
+-rwxr-----   1 jeremy  unixadm      2633 Nov 15 09:13 aixprofile*
+-rwxr-xr-x   1 jeremy  unixadm       236 Nov 14 09:24 migrate*
+drwxr-xr-x   2 jeremy  unixadm      1024 Dec 14 15:55 scripts/
+</pre>
+<table width=90%>
+<h3>
+<tr>
+  <td><h3><font color=red>1 == filetype</font></h3></td>
+  <td><h3><font color=lightblue>2 == permissions</font></h3></td>
+</tr>
+<tr>  <td><h3><font color=yellow>3 == number of hard links</font></h3></td>
+  <td><h3><font color=lime>4 == user</font></h3></td></tr>
+<tr>  <td><h3><font color=white>5 == group</font></h3></td>
+  <td><h3><font color=orange>6 == size in bytes, or 1024 blocks (for directories)</font></h3></td></tr>
+<tr>  <td><h3><font color=fuchsia>7 == last modification date &amp time</font></h3></td>
+  <td><h3><font color=tan>8 == file name</font></h3></td></tr>
+</table>
+</h3><h2>
+</font>
+
+<a href="slide4.html">NEXT</a><br>
+<a href="slide2.html">PREVIOUS</a>
+</Body>
+</HTML>

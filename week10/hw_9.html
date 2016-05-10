@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Class 10: Email</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<style type="text/css">
+@import url("../../class_format.css");
+span {
+  font-family:courier;
+}
+.hints {
+  font-size:0.8em;
+}
+</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77508642-6', 'auto');
+      ga('send', 'pageview');
+
+      </script>
+</head>
+<body>
+<h1>PHP - CCIS 2630 - HW 9</h1>
+<h4>Registration Script - 10 points</h4>
+<p>Change your registration page to add a field to collect the user's email address. Next, modify your registration script to make sure the email address entered is valid. This must include (at a minimum) a check for the following:</p>
+<ul>
+  <li>The email address must contain the "@" symbol</li>
+  <li>The email address must end in a valid top level domain (.net, .com, .org, .edu etc).
+</ul>
+<p>If the registration is valid, send the user a confirmation email with a link in it to a confirmation page on your web site. Also, make an entry in your database indicating that the user has started the registration process. This can be done serveral ways. One suggested way is to set a status field in your database to "phase 1" or 1 or something similar.</p>
+<h5>Hints:</h5>
+<ul class="hints">
+  <li>You may want to make the link by adding a few parameters. i.e http://morticia.hennepintech.edu/~YOUR_USER_NAME/confirm.php?userID=id.</li>
+</ul>
+<h4>Confirmation script - 5 points</h4>
+<p>Create a script (named confirm.php) which updates the users status in the database from the previous part to "confirmed" or some other code indicating that they have confirmed their status. This script must be called when the user clicks on the email they received when they signed up.</p>
+<h4>Extra Credit - 2 points</h4>
+<p>In the confirmation script above, require the user to login before updating their status to confirmed.</p>
+<h4>Required to submit for credit (Due by end of next session):</h4>
+<ul>
+  <li>Your confirm.php file</li>
+  <li>Your registration form</li>
+  <li>A link to your page</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,91 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://www.linux-classes.com/includes/class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>CCIS2630 PHP:  PHP meets REs?</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77508642-6', 'auto');
+      ga('send', 'pageview');
+
+      </script>
+</head>
+<body>
+
+
+<h3>PHP and Regular Expressions</h3>
+<h4><a href="http://www.php.net/manual/en/function.preg-match.php">preg_match()</a></h4>
+<p>The preg_match function is a php function used to determine if a string matches a particular regular expression. The syntax is simple: (copied from php.net)</p>
+<pre>
+// The "i" after the pattern delimiter indicates a case-insensitive search
+if (<span style="color:red; font-family:Courier;">preg_match("/php/i", "PHP is the web scripting language of choice.")</span>) {
+   echo "A match was found.";
+} else {
+   echo "A match was not found.";
+}
+</pre>
+<p>The syntax is: preg_match(regularExpression, stringToMatch [, array matches]). In the example above, preg_match() looks for the string "php" in the text argument and returns a true or false.</p>
+<p>preg_match will also poplulate an array called "matches" if a match is found. This contains the matched text.</p>
+<h4><a href="http://www.php.net/manual/en/function.preg-match-all.php">preg_match_all()</a></h4>
+<p>The preg_match_all function is similar to the preg_match() function except that preg_match_all is global in scope. This means that is there are multiple matches is a string, preg_match_all will place them into the appropriate $matches array where as preg_match will only enter the first match.</p>
+<a id="back"></a>
+<p>A real world example of preg_match_all()</p>
+<pre>
+  //$d is the text from an html file
+  preg_match_all("/&lt;font size=\"\+2\">&lt;a href=\"(.*?)\">(.*?)&lt;\/font>/",$d,$matches);
+  for($i=0; $i&lt;count($matches[1]);$i++) {
+    print "&lt;a href=\"http://ssa.usps.gov/redir.php?url=http://www.usps.com/news/link/".$matches[1][$i]."\">".$matches[2][$i]."&lt;/a>&lt;br />";
+  }
+</pre>
+<p><strong>What this code does...</strong></p>
+<ol>
+  <li>First, I have an html file ($d)</li>
+  <li>Next I run a preg_match_all against that file to look for all the links enclosed in &lt;font size="+2> tags, and extract the target and text of those links.</li>
+  <li>I then loop through my matches array and write links to my page.</li>
+</ol>
+<h4><a href="http://www.php.net/manual/en/function.preg-replace.php">preg_replace()</a></h4>
+<p>The preg_replace function has the following syntax:</p>
+<p>preg_replace ( regularExpressions, replacements, strings )</p>
+<p>For all three of these arguments, you can feed preg_replace arrays. A good example from the PHP.net site is below...</p>
+<pre>
+$string = "The quick brown fox jumped over the lazy dog.";
+
+$patterns[0] = "/quick/";
+$patterns[1] = "/brown/";
+$patterns[2] = "/fox/";
+
+$replacements[2] = "bear";
+$replacements[1] = "black";
+$replacements[0] = "slow";
+
+echo preg_replace($patterns, $replacements, $string);
+</pre>
+<p>This will output...</p>
+<pre>
+The bear black slow jumped over the lazy dog.
+</pre>
+<p>Another example I've used is this...</p>
+<pre>
+$data = preg_replace("/(\r|\n|\t)*/","",$data);
+</pre>
+<p>This replaces all new lines, returns, and tabs with blanks. Essentially creating one long string from a multi-line file (such as an html document!)</p>
+
+
+<a class="pagelink" href="slide4.html">NEXT</a><br />
+
+<a class="pagelink" href="slide2.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>
+

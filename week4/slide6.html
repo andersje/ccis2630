@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://www.linux-classes.com/includes/class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Class 4:  CCIS2630 PHP;  Session Basics</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77508642-6', 'auto');
+      ga('send', 'pageview');
+
+      </script>
+</head>
+<body>
+<ul class="lectureslide">
+<li>oh, the agony of a stateless protocol</li>
+<!-- What's a stateful conversation? Consider a phone conversation. Usually you call someone there is a permanent connection while you are talking. There is a completed circuit for the duration of the call. With a web browser, a request is sent to the server, and the server responds. Once that is completed, the connection is dropped until a new request is made. This means that the server has no way of knowing if the current request is part of the sam or precious conversation. -->
+<li>What's a cookie?</li>
+<li>cookies allow us to maintain session info</li>
+<li>Client gets a cookie with unique information</li>
+<li>Server keeps a log of cookies and corresponding session data</li>
+<li>Client submits session data with each page request</li>
+<li>When server find a match, it restores it will restore that information into the current request and continue on.</li>
+<li>No cookies?  No problem: PHP will automatically create and append a sessionID to each link and form which is then sent over the net.</li>
+</ul>
+
+<a class="pagelink" href="slide7.html">NEXT</a><br />
+
+<a class="pagelink" href="slide5.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

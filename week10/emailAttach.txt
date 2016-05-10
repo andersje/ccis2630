@@ -1,0 +1,110 @@
+<?php
+/*
+#############################################################
+##################### CONFIGURATION #########################
+#############################################################
+### To send an email with an attachement, you must set    ###
+### the variables below to valid values.                  ###
+### The only variables that can be blank are:             ###
+###   $from, $cc, and $bcc                              ###
+### All others must have a value.                         ###
+#############################################################
+*/
+$subject = "";// ENTER SUBJECT HERE;
+$to = ""; //ENTER TO ADDRESS HERE;
+$from = ""; //ENTER FROM ADDRESS HERE;
+$cc = ""; //ENTER CC ADDRESS IF NEEDED
+$bcc = ""; //ENTER BCC ADDRESS IF NEEDED
+$file = ""; //ENTER FILE TO ATTACH, MUST BE COMPLETE PATH
+$fileMimeType = ""; //ENTER THE MIME TYPE OF THE FILE
+/*
+##############################################################################
+####################### MIME-TYPES - A Short list ############################
+##############################################################################
+### application/vnd.ms-excel - Micrsoft Excel                              ###
+### application/octet-stream - Generic binary data                         ###
+### application/x-zip-compressed - .zip file                               ###
+### text/html - HTML text                                                  ###
+### text/css - CSS text                                                    ###
+### text/plain - Plain text (generic)                                      ###
+### image/jpeg - Jpeg                                                      ###
+### image/gif - Gif                                                        ###
+### image/png - Png                                                        ###
+### More at the following URL:                                             ###
+### http://www.isi.edu/in-notes/iana/assignments/media-types/media-types   ###
+##############################################################################
+*/
+$fileEncoding = ""; //SET THE ENCODING TYPE - USUALLY quoted-printable FOR TEXT FILES AND base64 FOR BINARY FILES (EXCEL, WORD, ETC)
+$text = "This is a sample email"; //ENTER THE TEXT OF THE EMAIL
+/******** End configuration ********/
+// DECLARE VARIABLES
+$contents="";
+$headers="";
+$message="";
+/*
+############ RESOURCE ################
+Some of this code from the following site:
+http://www.hollowearth.co.uk/tech/php/email_attachments.php
+############ END #####################
+*/
+//get mimi boundary.
+$mime_boundary = "<<<--==+X[".md5(time())."]";
+//Set to from and other info.
+if($from!="") {
+  $headers .= "From: ".$from."\r\n";
+}
+
+if($cc !="") {
+  $headers .= "Cc: ".$cc."\r\n";
+}
+if($bcc !="") {
+  $headers .= "Bcc: ".$bcc."\r\n";
+}
+//contruct headers
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: multipart/mixed;\r\n";
+$headers .= " boundary=\"".$mime_boundary."\"";
+//construct message
+$message .= "This is a multi-part message in MIME format.\r\n";
+$message .= "\r\n";
+$message .= "--".$mime_boundary."\r\n";
+//add body text
+$message .= "Content-Type: text/plain; charset=\"iso-8859-1\"\r\n";
+$message .= "Content-Transfer-Encoding: 7bit\r\n";
+$message .= "\r\n";
+$message .= $text."\r\n";
+$message .= "--".$mime_boundary."\r\n";
+//add attachement
+$message .= "Content-Type: ".$fileMimeType.";\r\n";
+$message .= " name=\"".basename($file)."\"\r\n";
+$message .= "Content-Transfer-Encoding: ".$fileEncoding."\r\n";
+$message .= "Content-Length: ".filesize($file)."\r\n";
+$message .= "Content-Disposition: attachment;\r\n";
+$message .= " filename=\"".basename($file)."\"\r\n";
+$message .= "\r\n";
+/* READ IN FILE */
+$fh = fopen($file,"rb");
+while(!feof($fh)) {
+  $contents .= fread($fh,filesize($file));
+}
+fclose($fh);
+/* END READING FILE */
+if($fileEncoding=="quoted-printable") {
+  $message .= $contents;
+}
+else {
+  //this properly encodes binary data so it can survive transit through mail servers.
+  $message .= chunk_split(base64_encode($contents));
+}
+$message .= "\r\n";
+$message .= "--".$mime_boundary."\r\n";
+//send email
+if(@mail($to, $subject, $message, $headers)) {
+  print "Message sent";
+}
+else {
+  print "Unable to send email";
+}
+
+print "<br />File: $file<br />Type: $fileMimeType";
+?>

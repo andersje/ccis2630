@@ -1,0 +1,110 @@
+   <html>
+  <body>
+  <pre>
+  Name:
+
+                                PHP - CCIS 2630
+
+  Class 5 - Feb 16, 2006
+
+    Homework 5 (due by end of next class period)
+
+    Registration page
+
+    1) (10 pts) - Modify the registration page and appropriate functions to do
+    the following:
+
+     * If  the  registration  is good (ie all the form fields are valid),
+       add  the  information into a file called "users.txt". Seperate all
+       the fields with a colon (:). Example:
+       username:firstName:lastName:address:city:state:zip.  Make sure you
+       have  enough  fields  for all your form elements, but do not store
+       the  password  in  this  file.  Also, add a field for checking the
+       users status.
+     * If  the  registration  is good, add the username and password to a
+       file  called  "login.txt".  The format of the file is in part 2 of
+       this  assignment. Make sure you set the last_date_logged_in to the
+       current  time,  and  in  the  date format listed in part 3 of this
+       assignment.
+     * Make  sure  both the "users.txt" and "login.txt" files are in your
+       home directory and not your public_html directory.
+
+    2) (5 pts) - Verify users
+
+   From  last week's homework, modify the login script to check against a
+   text  file  which  contains  the  user names and passwords of everyone
+   registered  on  the  system.  All entries in the file should be in the
+   following format:
+username:password:last_date_logged_in
+
+    3) (5 pts) - Update log in information
+
+   Update  your  login script and the appropriate functions to update the
+   "last_date_logged_in" field in the login file (above). The last logged
+   in date should be in the following format:
+02-22-2004_0710PM
+
+    4) (10 pts) - Upload Page
+
+   Create  a page that allows the user (if logged in) to upload images to
+   the web site. The uploaded files must conform to the following:
+     * Must be .jpg, .gif, or .png
+     * Must be less than 100KB
+     * Cannot have more than 50 total images uploaded on the server
+
+   Each  user  must  have their own directory to upload the images and it
+   must  be  a  sub-directory  off  your  public_html directory. I.e user
+   "johnDoe"  should  have a directory /home/YOURUSERNAME/public_html/johnDoe/
+   where his images are uploaded and stored
+
+   Create  a page for the user to view all of their uploaded images. This
+   page   must   be   accessible   by   using  the  following  URL  type:
+   http://morticia.hennepintech.edu/~YOURUSERNAME/userName/showImages.php      ,
+   where  uXXXXXX  is your user name and userName is the user's username.
+   This page must contain the following:
+     * Total number of images uploaded by that user
+     * Total space used on the server
+     * A  table  listing  every image, it's size, and name hyperlinked to
+       that  image.  Example:  User  johnDoe  uploads an image file named
+       "myFile.jpg"  which  is  57  KB and another file named "myDog.gif"
+       which  is  33 KB. The table should have 2 entries similar to below
+       and  a summary showing 2 images uploaded with a total file size of
+       90KB
+
+TOTAL IMAGES: 2
+TOTAL SPACE ON SERVER: 90KB
+
+IMAGES:
++----------------------------+-------------------+
+|Image Name                  |File size          |
++----------------------------+-------------------+
+|myFile.jpg                  |57 KB              |
++----------------------------+-------------------+
+|myDog.gif                   |33 KB              |
++----------------------------+-------------------+
+
+    Extra Credit (2 pts)
+
+   Make  a page (or modify the upload page) to allow the user to edit any
+   images  they  have on the server. This includes the following (partial
+   credit will be given):
+     * Ability to rename the file (1pts)
+     * Ability to delete the file (1pts)
+
+    Extra credit(1 pt)
+
+   Modify  the  upload page to check and see if a file with the same name
+   has  already been uploaded. If it has, notify the user and prompt them
+   to  rename the old file, or verify they want to overwrite the existing
+   file. If they want to overwrite, allow the script to do so (default).
+
+    All your HTML code must be 508 compliant and XHTML1.0 Strict or better and
+    all your PHP code must be well commented and formatted.
+
+    Upload the files to the server and email a link to your homework, as well
+    as a zipped / tarred file containing all your homework to
+    phpclass@linux-classes.com - YOU MUST EMAIL THE ZIP / TAR FILE, AND A LINK TO YOUR
+    HOMEWORK TO RECEIVE CREDIT
+   </pre>
+   </body>
+   </html>
